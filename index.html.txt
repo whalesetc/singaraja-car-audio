@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singaraja Car Audio - Pusat Variasi & Audio Mobil Terbaik di Makassar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        automotive: {
+                            900: '#0a0a0c',
+                            800: '#121216',
+                            700: '#1c1c24',
+                            600: '#2a2a35',
+                            red: '#ff1e1e',
+                            orange: '#ff6600',
+                            accent: '#ff3333'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Inter & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0c; color: #f3f4f6; }
+        .glow-red { shadow: 0 0 25px rgba(255, 30, 30, 0.4); }
+        .glow-orange { shadow: 0 0 25px rgba(255, 102, 0, 0.4); }
+        .gradient-text {
+            background: linear-gradient(135deg, #ff1e1e 0%, #ff6600 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.95)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-automotive-900 text-gray-100 selection:bg-automotive-red selection:text-white">
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-automotive-700 border border-automotive-red text-white px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-automotive-red text-xl"></i>
+        <div>
+            <h4 class="font-bold text-sm">Informasi Singaraja</h4>
+            <p id="toast-msg" class="text-xs text-gray-300">Pesan terkirim ke WhatsApp!</p>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-automotive-800/90 backdrop-blur-md border-b border-automotive-600 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-automotive-red to-automotive-orange flex items-center justify-center shadow-lg shadow-automotive-red/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-car-rear text-white text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider uppercase text-white">SINGARAJA</span>
+                    <span class="block text-[10px] tracking-widest text-automotive-orange font-semibold uppercase">Car Audio & Variasi Makassar</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-300">
+                <a href="#beranda" class="hover:text-automotive-red transition-colors">Beranda</a>
+                <a href="#layanan" class="hover:text-automotive-red transition-colors">Layanan</a>
+                <a href="#galeri" class="hover:text-automotive-red transition-colors">Galeri Produk</a>
+                <a href="#tentang" class="hover:text-automotive-red transition-colors">Tentang Kami</a>
+                <a href="#testimoni" class="hover:text-automotive-red transition-colors">Testimoni</a>
+                <a href="#kontak" class="hover:text-automotive-red transition-colors">Kontak</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20konsultasi%20audio%20mobil." target="_blank" class="bg-gradient-to-r from-automotive-red to-automotive-orange text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-automotive-red/25 hover:shadow-automotive-red/50 hover:scale-105 transition-all flex items-center space-x-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Kami</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-automotive-800 border-b border-automotive-600 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="block py-2 text-gray-300 hover:text-automotive-red font-medium">Beranda</a>
+            <a href="#layanan" class="block py-2 text-gray-300 hover:text-automotive-red font-medium">Layanan</a>
+            <a href="#galeri" class="block py-2 text-gray-300 hover:text-automotive-red font-medium">Galeri Produk</a>
+            <a href="#tentang" class="block py-2 text-gray-300 hover:text-automotive-red font-medium">Tentang Kami</a>
+            <a href="#testimoni" class="block py-2 text-gray-300 hover:text-automotive-red font-medium">Testimoni</a>
+            <a href="#kontak" class="block py-2 text-gray-300 hover:text-automotive-red font-medium">Kontak</a>
+            <div class="pt-2">
+                <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio" target="_blank" class="w-full bg-gradient-to-r from-automotive-red to-automotive-orange text-white font-bold py-3 rounded-xl flex items-center justify-center space-x-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Kami</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative min-h-screen flex items-center justify-center hero-bg pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 bg-automotive-700/80 border border-automotive-600 px-4 py-2 rounded-full mb-6 backdrop-blur-sm animate-pulse">
+                <span class="w-2.5 h-2.5 rounded-full bg-automotive-red animate-ping"></span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gray-300">Pusat Audio & Variasi #1 di Makassar</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase mb-6 leading-tight">
+                Upgrade Suara & Tampilan Mobil <br class="hidden sm:inline">
+                <span class="gradient-text">Tanpa Kompromi</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 mb-10 font-normal">
+                Specialist Audio Custom, Peredam Suara Kabin, Head Unit Android Bergaransi, serta Aksesoris & Bodykit premium di Kota Makassar. Rasakan sensasi audio konser di dalam mobil Anda.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20ingin%20konsultasi%20upgrade%20audio." target="_blank" class="w-full sm:w-auto bg-gradient-to-r from-automotive-red to-automotive-orange text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-automotive-red/30 hover:shadow-automotive-red/60 hover:scale-105 transition-all flex items-center justify-center space-x-3">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Konsultasi Gratis via WhatsApp</span>
+                </a>
+                <a href="#layanan" class="w-full sm:w-auto bg-automotive-700/80 hover:bg-automotive-600 border border-automotive-600 text-white font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-list-check text-automotive-orange"></i>
+                    <span>Lihat Layanan Kami</span>
+                </a>
+            </div>
+<!-- ... espaço existente ... -->
+    <!-- LAYANAN UNGGULAN -->
+    <section id="layanan" class="py-24 bg-automotive-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-automotive-red font-bold text-xs uppercase tracking-widest bg-automotive-red/10 px-3 py-1 rounded-full">Layanan Profesional</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-3 mb-4">Solusi Variasi & Audio Mobil Lengkap</h2>
+                <p class="text-gray-400 text-base">Kami menghadirkan pilihan jasa variasi terbaik mulai dari hiburan interior, kenyamanan jok & karpet, hingga peningkatan kualitas suara bass yang menggelegar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1: Head Unit Android -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-red transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-red/10 border border-automotive-red/30 flex items-center justify-center text-automotive-red text-2xl mb-6 group-hover:bg-automotive-red group-hover:text-white transition-all">
+                        <i class="fa-solid fa-tablet-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Pasang Head Unit Android</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Upgrade layar dashboard dengan Android RAM besar, layar 2K jernih, support Apple CarPlay & Android Auto.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Pasang%20Head%20Unit%20Android." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2: Camera Mundur -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-orange transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-orange/10 border border-automotive-orange/30 flex items-center justify-center text-automotive-orange text-2xl mb-6 group-hover:bg-automotive-orange group-hover:text-white transition-all">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Pasang Camera Mundur</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Parkir jadi lebih aman, jernih di malam hari, dan akurat dengan pilihan kamera mundur & kamera 360 derajat.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Pasang%20Camera%20Mundur." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Bodykit Sporty -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-red transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-red/10 border border-automotive-red/30 flex items-center justify-center text-automotive-red text-2xl mb-6 group-hover:bg-automotive-red group-hover:text-white transition-all">
+                        <i class="fa-solid fa-car-burst"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Bodykit Sporty</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Ubah tampilan eksterior mobil Anda jadi lebih agresif, elegan, beraerodinamika tinggi dengan bodykit berkualitas.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Bodykit%20Sporty." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 4: Audio Mobil -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-orange transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-orange/10 border border-automotive-orange/30 flex items-center justify-center text-automotive-orange text-2xl mb-6 group-hover:bg-automotive-orange group-hover:text-white transition-all">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Audio Mobil</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Pemasangan speaker 2-way / 3-way, power amplifier, dan tuning suara profesional untuk kualitas konser di kabin.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Audio%20Mobil." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 5: Jok Mobil -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-red transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-red/10 border border-automotive-red/30 flex items-center justify-center text-automotive-red text-2xl mb-6 group-hover:bg-automotive-red group-hover:text-white transition-all">
+                        <i class="fa-solid fa-chair"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Jok Mobil</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Sarung jok dan bungkus paten jok kulit sintetis premium dengan jahitan rapi, empuk, dan mudah dibersihkan.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Jok%20Mobil." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 6: Karpet 5D -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-orange transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-orange/10 border border-automotive-orange/30 flex items-center justify-center text-automotive-orange text-2xl mb-6 group-hover:bg-automotive-orange group-hover:text-white transition-all">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Karpet 5D</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Karpet lantai presisi mengikuti lekuk dasar kabin mobil, anti air, mewah, dan melindungi kebersihan interior secara total.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Karpet%205D." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 7: Basstube -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-red transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-red/10 border border-automotive-red/30 flex items-center justify-center text-automotive-red text-2xl mb-6 group-hover:bg-automotive-red group-hover:text-white transition-all">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Basstube</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Pilihan praktis penambah dentuman bass empuk di kabin tanpa memakan banyak tempat di bagasi mobil Anda.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Basstube." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 8: Subwoofer -->
+                <div class="bg-automotive-700/50 border border-automotive-600 rounded-2xl p-6 hover:border-automotive-orange transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-14 h-14 rounded-xl bg-automotive-orange/10 border border-automotive-orange/30 flex items-center justify-center text-automotive-orange text-2xl mb-6 group-hover:bg-automotive-orange group-hover:text-white transition-all">
+                        <i class="fa-solid fa-radio"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Subwoofer</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">Subwoofer kolong maupun subwoofer box bagasi bertenaga tinggi untuk menghasilkan getaran bass yang mantap.</p>
+                    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Subwoofer." target="_blank" class="inline-flex items-center text-sm font-semibold text-automotive-orange hover:text-white transition-colors">
+                        <span>Konsultasi</span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI PRODUK & INSTALASI -->
+    <section id="galeri" class="py-24 bg-automotive-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-automotive-orange font-bold text-xs uppercase tracking-widest bg-automotive-orange/10 px-3 py-1 rounded-full">Portofolio Pekerjaan</span>
+                    <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-3">Galeri Produk & Instalasi</h2>
+                </div>
+                <p class="text-gray-400 text-sm max-w-md mt-4 md:mt-0">Dokumentasi produk unggulan, suasana workshop, dan hasil pengerjaan variasi & audio mobil di Makassar.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mb-10">
+                <button onclick="filterGallery('all')" class="gallery-filter-btn active bg-automotive-red text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all">Semua</button>
+                <button onclick="filterGallery('audio')" class="gallery-filter-btn bg-automotive-700 hover:bg-automotive-600 text-gray-300 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all">Audio, Subwoofer & Basstube</button>
+                <button onclick="filterGallery('headunit')" class="gallery-filter-btn bg-automotive-700 hover:bg-automotive-600 text-gray-300 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all">Head Unit & Kamera</button>
+                <button onclick="filterGallery('interior')" class="gallery-filter-btn bg-automotive-700 hover:bg-automotive-600 text-gray-300 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all">Jok & Karpet 5D</button>
+                <button onclick="filterGallery('bodykit')" class="gallery-filter-btn bg-automotive-700 hover:bg-automotive-600 text-gray-300 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all">Bodykit Sporty</button>
+            </div>
+
+            <!-- Gallery Grid with AI Workshop Image & Service Mapping -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="gallery-grid">
+                
+                <!-- Item 1: Head Unit Android -->
+                <div class="gallery-item headunit relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Pasang Head Unit Android" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Head+Unit+Android'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Pasang Head Unit Android</h3>
+                        <p class="text-xs text-gray-300 mb-4">Layar jernih responsif, RAM besar, support Apple CarPlay & Android Auto.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Pasang%20Head%20Unit%20Android." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2: Camera Mundur -->
+                <div class="gallery-item headunit relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Pasang Camera Mundur" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Camera+Mundur'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Pasang Camera Mundur</h3>
+                        <p class="text-xs text-gray-300 mb-4">Parkir lebih aman, sudut pandang luas, tajam di kondisi malam hari.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Pasang%20Camera%20Mundur." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 3: Bodykit Sporty -->
+                <div class="gallery-item bodykit relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Bodykit Sporty" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Bodykit+Sporty'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Bodykit Sporty</h3>
+                        <p class="text-xs text-gray-300 mb-4">Ubah tampilan eksterior mobil makin agresif, elegan, & aerodinamis.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Bodykit%20Sporty." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 4: Audio Mobil -->
+                <div class="gallery-item audio relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Audio Mobil" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Audio+Mobil'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Audio Mobil</h3>
+                        <p class="text-xs text-gray-300 mb-4">Upgrade speaker 2-way / 3-way & power amplifier kualitas konser.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Audio%20Mobil." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 5: Jok Mobil -->
+                <div class="gallery-item interior relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Jok Mobil" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Jok+Mobil'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Jok Mobil</h3>
+                        <p class="text-xs text-gray-300 mb-4">Bungkus paten & sarung jok kulit sintetis premium, empuk & rapi.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Jok%20Mobil." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 6: Karpet 5D -->
+                <div class="gallery-item interior relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80" alt="Karpet 5D" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Karpet+5D'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Karpet 5D</h3>
+                        <p class="text-xs text-gray-300 mb-4">Karpet presisi anti air, mewah, melindungi lantai kabin secara total.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Karpet%205D." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 7: Basstube -->
+                <div class="gallery-item audio relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Basstube" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Basstube'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Basstube</h3>
+                        <p class="text-xs text-gray-300 mb-4">Dentuman bass empuk dan praktis tanpa menyita banyak ruang bagasi.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Basstube." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 8: Subwoofer -->
+                <div class="gallery-item audio relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Subwoofer" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Subwoofer'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <h3 class="text-lg font-bold text-white mb-2">Subwoofer</h3>
+                        <p class="text-xs text-gray-300 mb-4">Subwoofer kolong & box bertenaga tinggi untuk bass menggelegar.</p>
+                        <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Subwoofer." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
+                            <span>Konsultasi</span>
+                            <i class="fa-solid fa-chevron-right md:ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang" class="py-24 bg-automotive-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-automotive-red font-bold text-xs uppercase tracking-widest bg-automotive-red/10 px-3 py-1 rounded-full">Tentang Singaraja Car Audio</span>
+                    <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mt-3 mb-6">Pusat Variasi & Audio Terlengkap di Kota Makassar</h2>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                        Berdiri di jantung Kota Makassar, tepatnya di <strong class="text-white">Jl. Toddopuli Raya Timur Blok A3 No. 19-20</strong>, <strong class="text-white">Singaraja Car Audio</strong> telah menjadi destinasi utama para pecinta otomotif yang ingin mendongkrak kualitas hiburan audio dan estetika mobil mereka.
+                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                        Kami didukung oleh teknisi berpengalaman, alat tuning berstandar profesional, serta koleksi produk original bergaransi resmi dari berbagai merk ternama dunia. Kepuasan pelanggan dan kerapian instalasi kabel adalah prioritas utama kami.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center space-x-3 bg-automotive-700/60 p-4 rounded-xl border border-automotive-600">
+                            <i class="fa-solid fa-check-circle text-automotive-red text-xl"></i>
+                            <span class="text-sm font-bold text-white">Teknisi Ahli & Presisi</span>
+                        </div>
+                        <div class="flex items-center space-x-3 bg-automotive-700/60 p-4 rounded-xl border border-automotive-600">
+                            <i class="fa-solid fa-check-circle text-automotive-orange text-xl"></i>
+                            <span class="text-sm font-bold text-white">Produk 100% Original</span>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Singaraja+Car+Audio+Jl.+Toddopuli+Raya+Timur+Blok+A3+No.19-20+Makassar" target="_blank" class="inline-flex items-center space-x-3 bg-gradient-to-r from-automotive-red to-automotive-orange text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-automotive-red/30 hover:scale-105 transition-all">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Buka Google Maps ke Workshop</span>
+                    </a>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-automotive-red to-automotive-orange rounded-3xl blur-lg opacity-30"></div>
+                    <div class="relative rounded-2xl overflow-hidden border border-automotive-600 shadow-2xl bg-automotive-700 h-[400px]">
+                        <!-- Google Maps Embed -->
+                        <iframe class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.7151048473215!2d119.4445!3d-5.1565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zJnBvaW50PS01LjE1NjUsMTE5LjQ0NDU!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI PELANGGAN -->
+    <section id="testimoni" class="py-24 bg-automotive-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-automotive-orange font-bold text-xs uppercase tracking-widest bg-automotive-orange/10 px-3 py-1 rounded-full">Testimoni Pelanggan</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-3 mb-4">Apa Kata Mereka?</h2>
+                <p class="text-gray-400 text-base">Kepuasan pelanggan Makassar adalah bukti nyata komitmen kualitas pelayanan kami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testi 1 -->
+                <div class="bg-automotive-800 border border-automotive-600 p-8 rounded-2xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 space-x-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic mb-6 leading-relaxed">
+                            "Pasang audio 3-way di Singaraja Car Audio benar-benar puas banget. Suaranya jernih, staging pas, dan pengerjaan pilarnya rapi seperti bawaan pabrik. Recommended banget di Makassar!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-automotive-700">
+                        <div class="w-12 h-12 rounded-full bg-automotive-red/20 text-automotive-red font-bold flex items-center justify-center text-lg">
+                            AR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Andi Rahmat</h4>
+                            <span class="text-xs text-gray-400">Owner Toyota Fortuner - Makassar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="bg-automotive-800 border border-automotive-600 p-8 rounded-2xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 space-x-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic mb-6 leading-relaxed">
+                            "Ganti head unit Android dan pasang peredam kabin. Sekarang kabin mobil jadi senyap banget, anak-anak juga senang bisa nonton YouTube selama perjalanan jauh. Pelayanan ramah!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-automotive-700">
+                        <div class="w-12 h-12 rounded-full bg-automotive-orange/20 text-automotive-orange font-bold flex items-center justify-center text-lg">
+                            HW
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Hendra Wijaya</h4>
+                            <span class="text-xs text-gray-400">Owner Honda CR-V - Makassar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="bg-automotive-800 border border-automotive-600 p-8 rounded-2xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 space-x-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic mb-6 leading-relaxed">
+                            "Tempat variasi mobil paling lengkap dan profesional di Makassar. Harga bersaing, barang dijamin original, dan konsultasinya enak tidak dipaksa beli yang mahal."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-4 border-t border-automotive-700">
+                        <div class="w-12 h-12 rounded-full bg-automotive-red/20 text-automotive-red font-bold flex items-center justify-center text-lg">
+                            MR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Muh. Reski</h4>
+                            <span class="text-xs text-gray-400">Owner Mitsubishi Xpander - Makassar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK & FORM PESAN -->
+    <section id="kontak" class="py-24 bg-automotive-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <span class="text-automotive-red font-bold text-xs uppercase tracking-widest bg-automotive-red/10 px-3 py-1 rounded-full">Hubungi Kami</span>
+                    <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-3 mb-6">Kunjungi Workshop Atau Kirim Pesan</h2>
+                    <p class="text-gray-400 text-sm sm:text-base mb-8">
+                        Ingin konsultasi langsung spesifikasi audio mobil impian Anda atau menjadwalkan pemasangan? Kunjungi workshop kami di Makassar.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-automotive-red/10 border border-automotive-red/30 flex items-center justify-center text-automotive-red text-xl flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Alamat Workshop</h4>
+                                <p class="text-gray-400 text-sm">Jl. Toddopuli Raya Timur Blok A3 No. 19-20, Kota Makassar, Sulawesi Selatan</p>
+                                <a href="https://maps.google.com/?q=Singaraja+Car+Audio+Jl.+Toddopuli+Raya+Timur+Blok+A3+No.19-20+Makassar" target="_blank" class="inline-block mt-2 text-xs font-bold text-automotive-orange hover:underline">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Buka di Google Maps
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-automotive-orange/10 border border-automotive-orange/30 flex items-center justify-center text-automotive-orange text-xl flex-shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">WhatsApp / Telepon</h4>
+                                <p class="text-gray-400 text-sm">+62 813-4352-8000 (Admin Singaraja)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-automotive-red/10 border border-automotive-red/30 flex items-center justify-center text-automotive-red text-xl flex-shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Jam Operasional</h4>
+                                <p class="text-gray-400 text-sm">Senin - Sabtu: 09.00 - 18.00 WITA<br>Minggu: Buka dengan Perjanjian</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Chat / Booking -->
+                <div class="bg-automotive-700/40 border border-automotive-600 p-8 rounded-2xl backdrop-blur-sm">
+                    <h3 class="text-xl font-bold text-white mb-6">Kirim Pesan Cepat via WhatsApp</h3>
+                    <form id="contact-form" onsubmit="sendWhatsAppMessage(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" required placeholder="Contoh: Budi Santoso" class="w-full bg-automotive-800 border border-automotive-600 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-automotive-red transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Jenis Kendaraan / Mobil</label>
+                            <input type="text" id="car" required placeholder="Contoh: Toyota Innova Reborn" class="w-full bg-automotive-800 border border-automotive-600 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-automotive-red transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Layanan Yang Diminati</label>
+                            <select id="service" class="w-full bg-automotive-800 border border-automotive-600 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-automotive-red transition-colors">
+                                <option value="Audio Custom & SQL">Audio Custom & SQL</option>
+                                <option value="Peredam Suara Kabin">Peredam Suara Kabin</option>
+                                <option value="Head Unit Android">Head Unit Android</option>
+                                <option value="Aksesoris & Bodykit">Aksesoris & Bodykit</option>
+                                <option value="Konsultasi Umum">Konsultasi Umum</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Pesan / Catatan Tambahan</label>
+                            <textarea id="message" rows="4" required placeholder="Tuliskan detail pertanyaan atau anggaran Anda..." class="w-full bg-automotive-800 border border-automotive-600 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-automotive-red transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-automotive-red to-automotive-orange text-white font-bold py-4 rounded-xl shadow-lg shadow-automotive-red/30 hover:scale-[1.02] transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Kirim ke WhatsApp Singaraja</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-automotive-900 border-t border-automotive-600 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-automotive-red to-automotive-orange flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-car-rear text-white text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-black tracking-wider uppercase text-white">SINGARAJA CAR AUDIO</span>
+                    <span class="block text-[10px] tracking-widest text-automotive-orange font-semibold uppercase">Makassar, Sulawesi Selatan</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-500">
+                &copy; 2026 Singaraja Car Audio Makassar. All Rights Reserved. Designed for Automotive Enthusiast.
+            </p>
+
+            <div class="flex items-center space-x-4 text-xl">
+                <a href="https://instagram.com/singarajacaraudio" target="_blank" class="w-10 h-10 rounded-xl bg-automotive-800 border border-automotive-600 flex items-center justify-center text-gray-300 hover:text-automotive-red hover:border-automotive-red transition-all" title="Instagram @singarajacaraudio"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="w-10 h-10 rounded-xl bg-automotive-800 border border-automotive-600 flex items-center justify-center text-gray-300 hover:text-automotive-red hover:border-automotive-red transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/6281343528000" target="_blank" class="w-10 h-10 rounded-xl bg-automotive-800 border border-automotive-600 flex items-center justify-center text-gray-300 hover:text-automotive-orange hover:border-automotive-orange transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281343528000?text=Halo%20Singaraja%20Car%20Audio,%20saya%20ingin%20konsultasi." target="_blank" class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-all shadow-emerald-500/50 animate-bounce" title="Hubungi WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gallery Filter Logic
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+            // Update active button styling
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-automotive-red', 'text-white');
+                btn.classList.add('bg-automotive-700', 'text-gray-300');
+            });
+            event.target.classList.remove('bg-automotive-700', 'text-gray-300');
+            event.target.classList.add('bg-automotive-red', 'text-white');
+
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // WhatsApp Form Handler
+        function sendWhatsAppMessage(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const car = document.getElementById('car').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            const phone = "6281343528000";
+            const text = `Halo Singaraja Car Audio,\n\nNama: ${name}\nMobil: ${car}\nLayanan: ${service}\nPesan: ${message}`;
+            const encodedText = encodeURIComponent(text);
+
+            showToast("Mengarahkan ke WhatsApp Singaraja...");
+            setTimeout(() => {
+                window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+            }, 1000);
+        }
+
+        // Toast Notification Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3000);
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-automotive-800', 'shadow-xl');
+            } else {
+                nav.classList.add('bg-automotive-800/90');
+            }
+        });
+    </script>
+</body>
+</html>
