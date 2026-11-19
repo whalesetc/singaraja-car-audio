@@ -18,6 +18,7 @@
                             600: '#2a2a35',
                             red: '#ff1e1e',
                             orange: '#ff6600',
+                            neon: '#00d2ff',
                             accent: '#ff3333'
                         }
                     },
@@ -61,10 +62,11 @@
     <!-- HEADER / NAVBAR -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-automotive-800/90 backdrop-blur-md border-b border-automotive-600 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
+            <!-- Logo Brand SR -->
             <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-automotive-red to-automotive-orange flex items-center justify-center shadow-lg shadow-automotive-red/30 group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-car-rear text-white text-lg"></i>
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-automotive-700 via-automotive-900 to-black border border-automotive-neon/50 flex items-center justify-center shadow-lg shadow-automotive-neon/20 group-hover:scale-105 transition-transform relative overflow-hidden">
+                    <span class="font-black text-lg tracking-tighter bg-gradient-to-b from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">SR</span>
+                    <span class="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-automotive-red via-automotive-neon to-automotive-orange"></span>
                 </div>
                 <div>
                     <span class="text-xl font-black tracking-wider uppercase text-white">SINGARAJA</span>
@@ -117,9 +119,11 @@
     <section id="beranda" class="relative min-h-screen flex items-center justify-center hero-bg pt-20 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-transparent to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 bg-automotive-700/80 border border-automotive-600 px-4 py-2 rounded-full mb-6 backdrop-blur-sm animate-pulse">
+            <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-automotive-700/80 border border-automotive-600 px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
                 <span class="w-2.5 h-2.5 rounded-full bg-automotive-red animate-ping"></span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gray-300">Pusat Audio & Variasi #1 di Makassar</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-gray-200">Pusat Audio & Variasi #1 di Makassar</span>
+                <span class="hidden sm:inline text-gray-500">•</span>
+                <span class="text-xs font-medium text-automotive-neon"><i class="fa-regular fa-clock mr-1"></i>Buka 08.30 - 17.00 WITA</span>
             </div>
             
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight uppercase mb-6 leading-tight">
@@ -288,7 +292,7 @@
                 <div class="gallery-item headunit relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Pasang Head Unit Android" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Head+Unit+Android'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-neon uppercase tracking-wider mb-1">Infotainment System</span>
                         <h3 class="text-lg font-bold text-white mb-2">Pasang Head Unit Android</h3>
                         <p class="text-xs text-gray-300 mb-4">Layar jernih responsif, RAM besar, support Apple CarPlay & Android Auto.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Pasang%20Head%20Unit%20Android." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -302,7 +306,7 @@
                 <div class="gallery-item headunit relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Pasang Camera Mundur" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Camera+Mundur'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-neon uppercase tracking-wider mb-1">Safety & Parking</span>
                         <h3 class="text-lg font-bold text-white mb-2">Pasang Camera Mundur</h3>
                         <p class="text-xs text-gray-300 mb-4">Parkir lebih aman, sudut pandang luas, tajam di kondisi malam hari.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Pasang%20Camera%20Mundur." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -316,7 +320,7 @@
                 <div class="gallery-item bodykit relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Bodykit Sporty" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Bodykit+Sporty'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Exterior Styling</span>
                         <h3 class="text-lg font-bold text-white mb-2">Bodykit Sporty</h3>
                         <p class="text-xs text-gray-300 mb-4">Ubah tampilan eksterior mobil makin agresif, elegan, & aerodinamis.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Bodykit%20Sporty." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -330,7 +334,7 @@
                 <div class="gallery-item audio relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Audio Mobil" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Audio+Mobil'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-neon uppercase tracking-wider mb-1">High-End Car Audio</span>
                         <h3 class="text-lg font-bold text-white mb-2">Audio Mobil</h3>
                         <p class="text-xs text-gray-300 mb-4">Upgrade speaker 2-way / 3-way & power amplifier kualitas konser.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Audio%20Mobil." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -344,7 +348,7 @@
                 <div class="gallery-item interior relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Jok Mobil" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Jok+Mobil'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Interior Comfort</span>
                         <h3 class="text-lg font-bold text-white mb-2">Jok Mobil</h3>
                         <p class="text-xs text-gray-300 mb-4">Bungkus paten & sarung jok kulit sintetis premium, empuk & rapi.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Jok%20Mobil." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -358,7 +362,7 @@
                 <div class="gallery-item interior relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80" alt="Karpet 5D" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Karpet+5D'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Interior Protection</span>
                         <h3 class="text-lg font-bold text-white mb-2">Karpet 5D</h3>
                         <p class="text-xs text-gray-300 mb-4">Karpet presisi anti air, mewah, melindungi lantai kabin secara total.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Karpet%205D." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -372,7 +376,7 @@
                 <div class="gallery-item audio relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Basstube" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff1e1e?text=Basstube'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-orange uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-neon uppercase tracking-wider mb-1">Compact Bass System</span>
                         <h3 class="text-lg font-bold text-white mb-2">Basstube</h3>
                         <p class="text-xs text-gray-300 mb-4">Dentuman bass empuk dan praktis tanpa menyita banyak ruang bagasi.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Basstube." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
@@ -386,9 +390,9 @@
                 <div class="gallery-item audio relative group overflow-hidden rounded-2xl border border-automotive-600 bg-automotive-800">
                     <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Subwoofer" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1c1c24/ff6600?text=Subwoofer'">
                     <div class="absolute inset-0 bg-gradient-to-t from-automotive-900 via-automotive-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-6">
-                        <span class="text-xs font-bold text-automotive-red uppercase tracking-wider mb-1">Layanan Unggulan</span>
+                        <span class="text-xs font-bold text-automotive-neon uppercase tracking-wider mb-1">Deep Bass Performance</span>
                         <h3 class="text-lg font-bold text-white mb-2">Subwoofer</h3>
-                        <p class="text-xs text-gray-300 mb-4">Subwoofer kolong & box bertenaga tinggi untuk bass menggelegar.</p>
+                        <p class="text-xs text-gray-300 mb-4">Subwoofer kolong & box bertenaga tinggi untuk menghasilkan getaran bass yang mantap.</p>
                         <a href="https://wa.me/6285111666708?text=Halo%20Singaraja%20Car%20Audio,%20saya%20tertarik%20Subwoofer." target="_blank" class="inline-flex items-center text-xs font-bold text-white bg-automotive-red px-4 py-2 rounded-lg w-fit hover:bg-red-700 transition-colors">
                             <span>Konsultasi</span>
                             <i class="fa-solid fa-chevron-right md:ml-2"></i>
@@ -571,7 +575,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-white mb-1">Jam Operasional</h4>
-                                <p class="text-gray-400 text-sm">Senin - Sabtu: 09.00 - 18.00 WITA<br>Minggu: Buka dengan Perjanjian</p>
+                                <p class="text-gray-400 text-sm">Setiap Hari (Senin - Minggu): 08.30 - 17.00 WITA</p>
                             </div>
                         </div>
                     </div>
@@ -592,11 +596,14 @@
                         <div>
                             <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Layanan Yang Diminati</label>
                             <select id="service" class="w-full bg-automotive-800 border border-automotive-600 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-automotive-red transition-colors">
-                                <option value="Audio Custom & SQL">Audio Custom & SQL</option>
-                                <option value="Peredam Suara Kabin">Peredam Suara Kabin</option>
-                                <option value="Head Unit Android">Head Unit Android</option>
-                                <option value="Aksesoris & Bodykit">Aksesoris & Bodykit</option>
-                                <option value="Konsultasi Umum">Konsultasi Umum</option>
+                                <option value="Pasang Head Unit Android">Pasang Head Unit Android</option>
+                                <option value="Pasang Camera Mundur">Pasang Camera Mundur</option>
+                                <option value="Bodykit Sporty">Bodykit Sporty</option>
+                                <option value="Audio Mobil">Audio Mobil</option>
+                                <option value="Jok Mobil">Jok Mobil</option>
+                                <option value="Karpet 5D">Karpet 5D</option>
+                                <option value="Basstube">Basstube</option>
+                                <option value="Subwoofer">Subwoofer</option>
                             </select>
                         </div>
                         <div>
@@ -617,17 +624,18 @@
     <footer class="bg-automotive-900 border-t border-automotive-600 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-automotive-red to-automotive-orange flex items-center justify-center shadow-lg">
-                    <i class="fa-solid fa-car-rear text-white text-lg"></i>
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-automotive-700 via-automotive-900 to-black border border-automotive-neon/50 flex items-center justify-center shadow-lg relative overflow-hidden">
+                    <span class="font-black text-lg tracking-tighter bg-gradient-to-b from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">SR</span>
+                    <span class="absolute bottom-0 inset-x-0 h-0.5 bg-gradient-to-r from-automotive-red via-automotive-neon to-automotive-orange"></span>
                 </div>
                 <div>
                     <span class="text-lg font-black tracking-wider uppercase text-white">SINGARAJA CAR AUDIO</span>
-                    <span class="block text-[10px] tracking-widest text-automotive-orange font-semibold uppercase">Makassar, Sulawesi Selatan</span>
+                    <span class="block text-[10px] tracking-widest text-automotive-orange font-semibold uppercase">Jl. Toddopuli Raya Timur Blok A3 No. 19-20, Makassar • Buka 08.30 - 17.00 WITA</span>
                 </div>
             </div>
 
             <p class="text-xs text-gray-500">
-                &copy; 2026 Singaraja Car Audio Makassar. All Rights Reserved. Designed for Automotive Enthusiast.
+                &copy; 2026 Singaraja Car Audio Makassar. All Rights Reserved.
             </p>
 
             <div class="flex items-center space-x-4 text-xl">
